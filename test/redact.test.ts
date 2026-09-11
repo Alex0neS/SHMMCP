@@ -38,7 +38,7 @@ describe("redact", () => {
   it("redacts telegram bot tokens by shape inside string values regardless of key name", () => {
     const input = { webhook_url: "https://api.telegram.org/bot000000000:FAKE_TOKEN_FOR_TEST_ONLY_0000000000/setWebhook" };
     const out = redact(input) as any;
-    expect(out.webhook_url).not.toContain("AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw");
+    expect(out.webhook_url).not.toContain("FAKE_TOKEN_FOR_TEST_ONLY_0000000000");
     expect(out.webhook_url).toContain(REDACTED);
   });
 
